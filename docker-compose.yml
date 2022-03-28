@@ -1,0 +1,43 @@
+version: '3.7'
+
+volumes:
+    logs:
+        driver: local
+
+networks:
+    local:
+        driver: bridge
+
+services:
+    slim:
+        image: php:8-alpine
+        working_dir: /var/www
+        command: sh -c "docker-php-ext-install pdo pdo_mysql && php -S 0.0.0.0:8080 -t public"
+        environment:
+            docker: "true"
+        ports:
+            - 8080:8080
+        networks:
+            - local
+        volumes:
+            - .:/var/www
+            - logs:/var/www/logs
+    mysql:
+        image: mysql:8
+        ports:
+            - 3306:3306
+        volumes:
+            - ~/apps/mysql:/var/lib/mysql
+        networks:
+            - local
+        environment:
+            - MYSQL_ROOT_PASSWORD=ander
+            - MYSQL_PASSWORD=ander
+            - MYSQL_USER=jon
+            - MYSQL_DATABASE=exads
+    composer_installation:
+        container_name: composer_installation
+        image: composer
+        volumes:
+            - ./:/app
+        command: composer install --ignore-platform-reqs

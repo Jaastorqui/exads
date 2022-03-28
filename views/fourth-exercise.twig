@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jon Ander Astorqui's test</title>
+    {{ assets({files: ['assets/milligram.min.css', 'assets/index.css']}) }}
+</head>
+<body class="container">
+    <h1 class="title__section">Prime Numbers</h1>
+
+    <div class="clearfix"></div>
+
+    <p>Exads would like to A/B test some promotional designs to see which provides the best conversion rate.
+        Write a snippet of PHP code that redirects end users to the different designs based on the data
+        provided by this library: packagist.org/exads/ab-test-data
+        The data will be structured as follows:</p>
+    <code>
+        “promotion” => [
+            “id” => 1,
+            “name” => “main”,
+            “designs” => [
+                [ “designId” => 1, “designName” => “Design 1”, “splitPercent” => 50 ],
+                [ “designId” => 2, “designName” => “Design 2”, “splitPercent” => 25 ],
+                [ “designId” => 3, “designName” => “Design 3”, “splitPercent” => 25 ],
+            ]
+        ]
+    </code>
+    <p>The code needs to be object-oriented and scalable. The number of designs per promotion may vary.</p>
+
+    <ul>
+        <li>designName: {{ promo }}</li>
+        <li>designName: {{ design.designName }}</li>
+        <li>designName: {{ design.splitPercent }}</li>
+    </ul>
+</body>
+</html>

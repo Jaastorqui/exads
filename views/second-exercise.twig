@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jon Ander Astorqui's test</title>
+    {{ assets({files: ['assets/milligram.min.css', 'assets/index.css']}) }}
+</head>
+<body class="container">
+    <h1 class="title__section">ASCII Array</h1>
+
+    <div class="clearfix"></div>
+
+    <p>Write a PHP script to generate a random array containing all the ASCII characters from comma (“,”) to
+        pipe (“|”). Then randomly remove and discard an arbitrary element from this newly generated array.
+        Write the code to efficiently determine the missing character.</p>
+
+    <h3>Original ASCII generated</h3>
+    <pre>{{ generatedAsciiString | join(' ') }}</pre>
+
+    <h3>Ascii generated without the letter</h3>
+    <pre>{{ removedCharacter | join(' ') }}</pre>
+
+    <h3>The missing letter</h3>
+    <pre>{{ missingletter | join(' ') }}</pre>
+</body>
+</html>

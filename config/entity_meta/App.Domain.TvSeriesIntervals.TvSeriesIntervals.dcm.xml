@@ -1,0 +1,15 @@
+<doctrine-mapping
+        xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+        https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd"
+>
+    <entity name="App\Domain\TvSeriesIntervals\TvSeriesIntervals" table="tv_series_intervals">
+        <id name="id_tv_series" type="integer"/>
+        <many-to-one field="tv_series" target-entity="App\Domain\TvSeries\TvSeries" inversed-by="tv_series_intervals">
+            <join-column name="id_tv_series" referenced-column-name="id" />
+        </many-to-one>
+        <field name="week_day" type="integer" />
+        <field name="show_time" type="date" />
+    </entity>
+</doctrine-mapping>

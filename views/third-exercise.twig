@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jon Ander Astorqui's test</title>
+    {{ assets({files: ['assets/milligram.min.css', 'assets/index.css']}) }}
+</head>
+<body class="container">
+    <h1 class="title__section">TV Series</h1>
+
+    <div class="clearfix"></div>
+
+    <p>Populate a MySQL (InnoDB) database with data from at least 3 TV Series using the following structure:
+        tv_series -> (id, title, channel, gender);
+        tv_series_intervals -> (id_tv_series, week_day, show_time);
+        * Provide the SQL scripts that create and populate the DB;
+        Using OOP, write a code that tells when the next TV Series will air based on the current time-date or an
+        inputted time-date, and that can be optionally filtered by TV Series title.</p>
+
+    <form action="#" method="POST">
+        <label for="title">Search By Title</label>
+        <input type="text" name="title">
+
+        <div class="clearfix"></div>
+        <input type="submit" value="Submit">
+    </form>
+
+    <ul>
+        {% for tvSerie in tvSeries %}
+            <li>
+                Name: {{ tvSerie.title }}, channel: {{ tvSerie.channel }}, gender: {{ tvSerie.gender }}
+            </li>
+            <ul>
+            {% for interval in tvSerie.getTvSeriesIntervals().getValues()  %}
+                <li>
+                    week_day: {{ interval.getWeekDay() }} show_time: {{ interval.getShowTime() | date('d-m-Y') }}
+                </li>
+            {% endfor %}
+            </ul>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>

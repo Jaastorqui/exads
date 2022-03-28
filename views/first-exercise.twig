@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jon Ander Astorqui's test</title>
+    {{ assets({files: ['assets/milligram.min.css', 'assets/index.css']}) }}
+</head>
+<body class="container">
+    <h1 class="title__section">Prime Numbers</h1>
+
+    <div class="clearfix"></div>
+
+    <p>Write a PHP script that prints all integer values from 1 to 100.
+        Beside each number, print the numbers it is a multiple of (inside brackets and comma-separated). If
+        only multiple of itself then print “[PRIME]”.</p>
+
+    <ul>
+        {% for value in values %}
+            <li>{{ value|e }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
