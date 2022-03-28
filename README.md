@@ -7,6 +7,9 @@ I have used Slim frameworkm 4 as a template for this test.
 I have run this project in Docker
 
 ### 1) run docker with `docker-compose up`
+
+For only MAC, uncomment docker-compose.yml:28
+
 ### 2) Once docker is installed, the folder vender will be in the project, then we can run the sql.sql into the database
 user: jon
 pass: ander

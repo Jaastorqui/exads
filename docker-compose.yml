@@ -24,6 +24,8 @@ services:
             - logs:/var/www/logs
     mysql:
         image: mysql:8
+        # For MAC ONLY
+        # platform: linux/amd64
         ports:
             - 3306:3306
         volumes:
